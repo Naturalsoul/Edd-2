@@ -1,0 +1,54 @@
+<div class="container" ng-controller="AuthController">
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <div class="card animated fadeInUp">
+                <h5 class="card-header">
+                    Ingreso al Sistema
+                </h5>
+                <div class="card-body">
+                    <form ng-submit="login()">
+                        <div class="form-group">
+                            <label for="username">Nombre de Usuario</label>
+                            <input type="text" class="form-control" id="username" aria-describedby="textHelp" placeholder="Ingrese su nombre de usuario" ng-model="userName">
+                            <small id="textHelp" class="form-text text-muted">Debe ingresar su nombre de usuario para continuar</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="pass">Contraseña</label>
+                            <input type="password" class="form-control" id="pass" placeholder="Ingrese su contraseña" ng-model="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Ingresar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <div class="card animated fadeInUp">
+                <h5 class="card-header">
+                    Registro en el Sistema
+                </h5>
+                <div class="card-body">
+                    <form ng-submit="signup()">
+                        <div class="form-group">
+                            <label for="s-username">
+                                Nombre de Usuario
+                            </label>
+                            <input type="text" class="form-control" id="s-username" aria-describedby="Ingrese su nombre de usuario" placeholder="Ingrese su nombre de usuario" ng-model="sign.username">
+                        </div>
+                        <div class="form-group">
+                            <label for="s-pass">
+                                Contraseña
+                            </label>
+                            <input type="text" class="form-control" id="s-pass" aria-describedby="Ingrese su contraseña de usuario" placeholder="Ingrese su contraseña de usuario" ng-model="sign.pass">
+                        </div>
+                        <button type="submit" class="btn btn-success">
+                            Registrarse
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+</div>
