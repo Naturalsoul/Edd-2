@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt-nodejs")
+let bcrypt = require("bcrypt-nodejs")
 let Users = require("../models/users.model")
 
 module.exports = {
@@ -9,12 +9,14 @@ module.exports = {
             }
             
             if (data != null) {
+                console.log(password)
+                
                 bcrypt.compare(password, data.pass, function (err, data) {
                     if (err) {
                         throw err
                     }
                     
-                    if (data != null) {
+                    if (data) {
                         next(true)
                     } else {
                         next(false)
@@ -34,7 +36,7 @@ module.exports = {
         }
     },
     
-    signup: function (userName, password, next) {
+    signup: function (username, password, next) {
         let salt = bcrypt.genSaltSync(10);
         
         bcrypt.hash(password, salt, null, function (err, hash) {
@@ -42,7 +44,7 @@ module.exports = {
                 throw err
             }
             
-            let newUser = new Users({name: userName, pass: hash})
+            let newUser = new Users({name: username, pass: hash})
             
             newUser.save()
             

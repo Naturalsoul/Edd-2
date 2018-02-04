@@ -30,7 +30,7 @@ module.exports = function (app) {
     })
     
     app.post("/api/signup", function(req, res) {
-        Users.signup(req.body.userName, req.body.password, function (results) {
+        Users.signup(req.body.username, req.body.pass, function (results) {
             res.json(results)
         })
     })

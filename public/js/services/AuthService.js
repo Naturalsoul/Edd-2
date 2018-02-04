@@ -1,18 +1,14 @@
 angular.module('AuthService', []).factory('AuthService', ['$http', "$location", function($http, $location) {
     return {
-        find : function(userName, pass) {
+        find : function(userName, pass, next) {
             $http.post("/api/login", {
                 userName: userName,
                 password: pass
             }).then(function (data) {
-                if (data.data.logged) {
-                    $location.path("/")
-                } else {
-                    alert("Datos invalidos.")
-                }
+                next(data.data)
             }, function (err) {
                 console.log(err)
-                alert(err.toString())
+                alert([])
             })
         },
         
@@ -22,7 +18,7 @@ angular.module('AuthService', []).factory('AuthService', ['$http', "$location", 
                     next(data.data.logged)
                 }, function (err) {
                     console.log(err)
-                    alert(err.toString())
+                    alert([])
                 })
         },
         
@@ -32,7 +28,17 @@ angular.module('AuthService', []).factory('AuthService', ['$http', "$location", 
                     next(data.data.logged)
                 }, function (err) {
                     console.log(err)
-                    alert(err.toString())
+                    alert([])
+                })
+        },
+        
+        signup: function (username, pass, next) {
+            $http.post("/api/signup", {username: username, pass: pass})
+                .then(function (data) {
+                    next(data.data)
+                }, function (err) {
+                    console.log(err)
+                    next([])
                 })
         }
     }
