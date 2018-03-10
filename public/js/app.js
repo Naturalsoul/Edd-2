@@ -7,18 +7,16 @@ angular.module('edd-2', ['ngRoute',
 
 .run(["$rootScope", "$location", "AuthService", function ($rootScope, $location, AuthService) {
     $rootScope.$on("$routeChangeStart", function (e) {
-        if ($location.path() == "/login") {
-            $("#navbar-top").hide()
-            $("#login").hide()
+        if ($location.path() == "/") {
+            $(".display-none").css("display", "none")
         } else {
-            $("#navbar-top").show()
-            $("#login").hide()
+            $(".display-none").css("display", "block")
         }
         
         AuthService.isLoggedIn(function (logged) {
             if (!logged) {
-                $("#navbar-top").hide()
-                $("#login").show()
+                $location.path("/")
+                $(".display-none").css("display", "none")
             }
         })
     })

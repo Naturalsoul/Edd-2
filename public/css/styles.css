@@ -1,0 +1,121 @@
+@font-face {
+    font-family: "PoetsenOne";
+    src: url("../fonts/PoetsenOne-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto-Thin.ttf");
+}
+
+.display-none {
+    display: none;
+}
+
+.vertical-middle {
+    top: 20vh;
+}
+
+.login-background {
+    background-image: url("../img/login/bg.jpg");
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.login-frame {
+    height: 500px;
+    background-color: rgba(146,152,56,.5);
+    border-radius: 10px;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    padding: 10px;
+}
+
+.app-name {
+    font-family: "PoetsenOne";
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 1);
+}
+
+.font-size-80 {
+    font-size: 80px;
+}
+
+.padding-bottom-80 {
+    padding-bottom: 80px;
+}
+
+.roboto {
+    font-family: "Roboto";
+}
+
+.input-group {
+    background-color: rgba(225,225,225,1);
+    border-radius: 4px;
+    -moz-transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+    transition: all 200ms ease-in;
+    transform: scale(1.0);
+}
+
+.input-group:focus-within {
+    -moz-transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    transition: all 200ms ease-in;
+    transform: scale(1.02);
+}
+
+.input-control {
+    padding: 10px;
+    background-color: rgba(225,225,225,0);
+    border-width: 0;
+}
+
+.input-control:focus {
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0) !important;
+    -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0) !important;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0) !important;
+    border-color: rgba(0,0,0,0);
+    background-color: rgba(225,225,225,1);
+}
+
+.input-control:invalid {
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0) !important;
+    -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0) !important;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0) !important;
+    border-color: rgba(0,0,0,0);
+}
+
+.input-group-prepend {
+    border-radius: 8px;
+    border-width: 0;
+}
+
+.input-group-text {
+    background-color: rgba(225,225,225,1) !important;
+    border-width: 0 !important;
+    font-size: 20px;
+}
+
+.btn-login {
+    background-color: rgba(146,152,56,1) !important;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(106,111,38,1);
+    color: rgb(255,255,255);
+    font-weight: bold;
+    -moz-transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+    transition: all 200ms ease-in;
+    transform: scale(1.0);
+}
+
+.btn-login:hover {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transition: all 200ms ease-in;
+    transform: scale(1.1);
+}

@@ -19,7 +19,7 @@ module.exports = function (app) {
     })
     
     app.post("/api/login", function (req, res) {
-        Users.checkUser(req.body.userName, req.body.password, function (results) {
+        Users.login(req.body.userName, req.body.password, function (results) {
             if (results) {
                 req.session.logged = true
                 res.json({logged: true})

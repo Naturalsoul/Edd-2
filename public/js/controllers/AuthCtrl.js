@@ -1,9 +1,9 @@
 angular.module("AuthCtrl", ['cp.ngConfirm']).controller("AuthController", ["$scope", "$location", "$ngConfirm", "AuthService", function ($scope, $location, $ngConfirm, AuthService) {
-    $scope.userName = ""
+    $scope.email = ""
     $scope.password = ""
     
     $scope.sign = {
-        username: "",
+        email: "",
         pass: ""
     }
     
@@ -37,10 +37,10 @@ angular.module("AuthCtrl", ['cp.ngConfirm']).controller("AuthController", ["$sco
     }
     
     $scope.signup = function () {
-        AuthService.signup($scope.sign.username, $scope.sign.pass, function (res) {
+        AuthService.signup($scope.sign.email, $scope.sign.pass, function (res) {
             if (res) {
                 $scope.sign = {
-                    username: "",
+                    email: "",
                     pass: ""
                 }
                 

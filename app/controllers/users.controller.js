@@ -2,28 +2,26 @@ let bcrypt = require("bcrypt-nodejs")
 let Users = require("../models/users.model")
 
 module.exports = {
-    checkUser: function (userName, password, next) {
+    login: function (userName, password, next) {
         Users.findOne({name: userName}, function (err, data) {
             if (err) {
                 throw err
             }
             
             if (data != null) {
-                console.log(password)
-                
                 bcrypt.compare(password, data.pass, function (err, data) {
                     if (err) {
                         throw err
                     }
                     
                     if (data) {
-                        next(true)
+                        next({logged: true})
                     } else {
-                        next(false)
+                        next({logged: false})
                     }
                 })
             } else {
-                next(false)
+                next({logged: false})
             }
         })
     },

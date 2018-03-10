@@ -1,54 +1,48 @@
-<div class="container" ng-controller="AuthController">
-    <div class="row">
-        <div class="col-sm-12 col-md-6">
-            <div class="card animated fadeInUp">
-                <h5 class="card-header">
-                    Ingreso al Sistema
-                </h5>
-                <div class="card-body">
-                    <form ng-submit="login()">
-                        <div class="form-group">
-                            <label for="username">Nombre de Usuario</label>
-                            <input type="text" class="form-control" id="username" aria-describedby="textHelp" placeholder="Ingrese su nombre de usuario" ng-model="userName">
-                            <small id="textHelp" class="form-text text-muted">Debe ingresar su nombre de usuario para continuar</small>
+<div ng-controller="AuthController" class="login-background">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 offset-md-3 col-md-6 align-middle vertical-middle">
+                <div class="login-frame animated slideInUp">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1 class="app-name text-center align-middle font-size-80 padding-bottom-80">
+                                Edd
+                            </h1>
                         </div>
-                        <div class="form-group">
-                            <label for="pass">Contraseña</label>
-                            <input type="password" class="form-control" id="pass" placeholder="Ingrese su contraseña" ng-model="password">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <form ng-submit="login()">
+                                <div class="col-sm-12">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="email-addon">
+                                                <i class="fas fa-envelope"></i>
+                                            </span>
+                                        </div>
+                                        <input type="email" ng-model="email" class="form-control input-control roboto" placeholder="correo@ejemplo.com" aria-label="correo@ejemplo.com" aria-describedby="email-addon" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="password-addon">
+                                                <i class="fas fa-key"></i>
+                                            </span>
+                                        </div>
+                                        <input type="password" ng-model="password" class="form-control input-control roboto" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="password-addon" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-login float-right roboto">
+                                        Ingresar
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-                        <button type="submit" class="btn btn-primary">Ingresar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6">
-            <div class="card animated fadeInUp">
-                <h5 class="card-header">
-                    Registro en el Sistema
-                </h5>
-                <div class="card-body">
-                    <form ng-submit="signup()">
-                        <div class="form-group">
-                            <label for="s-username">
-                                Nombre de Usuario
-                            </label>
-                            <input type="text" class="form-control" id="s-username" aria-describedby="Ingrese su nombre de usuario" placeholder="Ingrese su nombre de usuario" ng-model="sign.username">
-                        </div>
-                        <div class="form-group">
-                            <label for="s-pass">
-                                Contraseña
-                            </label>
-                            <input type="password" class="form-control" id="s-pass" aria-describedby="Ingrese su contraseña de usuario" placeholder="Ingrese su contraseña de usuario" ng-model="sign.pass">
-                        </div>
-                        <button type="submit" class="btn btn-success">
-                            Registrarse
-                        </button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    
-    
 </div>
