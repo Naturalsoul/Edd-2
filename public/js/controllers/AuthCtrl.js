@@ -4,7 +4,8 @@ angular.module("AuthCtrl", ['cp.ngConfirm']).controller("AuthController", ["$sco
     
     $scope.sign = {
         email: "",
-        pass: ""
+        pass: "",
+        pass2: ""
     }
     
     AuthService.isLoggedIn(function (logged) {
@@ -75,5 +76,9 @@ angular.module("AuthCtrl", ['cp.ngConfirm']).controller("AuthController", ["$sco
                 })
             }
         })
+    }
+    
+    $scope.goHome = function () {
+        $location.path("/")
     }
 }])

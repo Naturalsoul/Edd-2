@@ -5,7 +5,12 @@
 
 @font-face {
     font-family: "Roboto";
-    src: url("../fonts/Roboto-Thin.ttf");
+    src: url("../fonts/Roboto-Light.ttf");
+}
+
+@font-face {
+    font-family: "Expressway";
+    src: url("../fonts/expressway rg.ttf");
 }
 
 .display-none {
@@ -52,13 +57,29 @@
     font-family: "Roboto";
 }
 
+.expressway {
+    font-family: "Expressway";
+}
+
+.top-80 {
+    top: 80px;
+}
+
+.modal-trigger {
+    cursor: pointer;
+    color: rgba(255,255,255,1);
+}
+
 .input-group {
-    background-color: rgba(225,225,225,1);
+    background-color: rgba(250,250,250,1);
     border-radius: 4px;
     -moz-transform: scale(1.0);
     -webkit-transform: scale(1.0);
     transition: all 200ms ease-in;
     transform: scale(1.0);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(180,180,180,1);
 }
 
 .input-group:focus-within {
@@ -70,7 +91,7 @@
 
 .input-control {
     padding: 10px;
-    background-color: rgba(225,225,225,0);
+    background-color: rgba(250,250,250,0);
     border-width: 0;
 }
 
@@ -79,7 +100,7 @@
     -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0) !important;
     box-shadow: 0px 0px 0px 0px rgba(0,0,0,0) !important;
     border-color: rgba(0,0,0,0);
-    background-color: rgba(225,225,225,1);
+    background-color: rgba(250,250,250,1);
 }
 
 .input-control:invalid {
@@ -95,7 +116,7 @@
 }
 
 .input-group-text {
-    background-color: rgba(225,225,225,1) !important;
+    background-color: rgba(250,250,250,1) !important;
     border-width: 0 !important;
     font-size: 20px;
 }
@@ -118,4 +139,22 @@
     -webkit-transform: scale(1.1);
     transition: all 200ms ease-in;
     transform: scale(1.1);
+}
+
+@media screen and (max-width: 576px) {
+    .vertical-middle {
+        top: 10vh;
+    }
+    
+    .login-frame {
+        height: 420px;
+    }
+    
+    .padding-bottom-80 {
+        padding-bottom: 40px;
+    }
+    
+    .top-80 {
+        top: 40px;
+    }
 }
