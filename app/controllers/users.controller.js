@@ -2,16 +2,16 @@ let bcrypt = require("bcrypt-nodejs")
 let Users = require("../models/users.model")
 
 module.exports = {
-    login: function (userName, password, next) {
-        Users.findOne({name: userName}, function (err, data) {
+    login: function (email, password, next) {
+        Users.findOne({email: email}, function (err, data) {
             if (err) {
-                throw err
+                next({logged: false})
             }
             
             if (data != null) {
                 bcrypt.compare(password, data.pass, function (err, data) {
                     if (err) {
-                        throw err
+                        next({logged: false})
                     }
                     
                     if (data) {
@@ -34,19 +34,26 @@ module.exports = {
         }
     },
     
-    signup: function (username, password, next) {
-        let salt = bcrypt.genSaltSync(10);
-        
-        bcrypt.hash(password, salt, null, function (err, hash) {
-            if (err) {
-                throw err
+    signup: function (email, password, next) {
+        Users.count({email: email}, function (err, c) {
+            if (err) next({registered: false})
+            
+            if (c > 0) next({registered: false})
+            else {
+                let salt = bcrypt.genSaltSync(10);
+                
+                bcrypt.hash(password, salt, null, function (err, hash) {
+                    if (err) {
+                        next({registered: false})
+                    }
+                    
+                    let newUser = new Users({email: email, pass: hash})
+                    
+                    newUser.save()
+                    
+                    next({registered: true})
+                })
             }
-            
-            let newUser = new Users({name: username, pass: hash})
-            
-            newUser.save()
-            
-            next({registered: true})
         })
     }
 }

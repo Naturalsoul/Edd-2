@@ -8,6 +8,11 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             controller: 'AuthController'
         })
         
+        .when("/dashboard", {
+            templateUrl: "views/dashboard.html",
+            controller: "DashboardController"
+        })
+        
         .otherwise({
             redirectTo: "/"
         })

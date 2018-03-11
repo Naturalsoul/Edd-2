@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="libs/animate.css/animate.min.css">
     <link rel="stylesheet" href="libs/angular-confirm/dist/angular-confirm.min.css">
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/sidebar.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
 
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -40,7 +42,9 @@
     <!-- ANGULAR CUSTOM -->
     <script src="js/controllers/MainCtrl.js"></script>
     <script src="js/controllers/AuthCtrl.js"></script>
+    <script src="js/controllers/DashboardCtrl.js"></script>
     <script src="js/services/AuthService.js"></script>
+    <script src="js/services/DashboardService.js"></script>
     <script src="js/appRoutes.js"></script>
     <script src="js/app.js"></script>
 </head>
@@ -48,9 +52,86 @@
 <div>
     
     <!-- SIDEBAR -->
-    <div class="col-sm-1 display-none">
-        
+    <div class="col-sm-1 display-none sidebar">
+        <div class="row sidebar-item">
+            <div class="col-sm-12">
+                <h1 class="app-name text-center align-middle font-size-40">
+                    Edd
+                </h1>
+            </div>
+        </div>
+        <div class="row sidebar-item">
+            <div class="col-sm-12">
+                <img src="img/sidebar/user-info.png" class="img-fluid sidebar-icon"/>
+            </div>
+            <div class="col-sm-12">
+                <p class="roboto align-middle text-center">
+                    Información de Usuario
+                </p>
+            </div>
+        </div>
+        <div class="row sidebar-item">
+            <div class="col-sm-12">
+                <img src="img/sidebar/classroom.png" class="img-fluid sidebar-icon"/>
+            </div>
+            <div class="col-sm-12">
+                <p class="roboto align-middle text-center">
+                    Cursos
+                </p>
+            </div>
+        </div>
+        <div class="row sidebar-item">
+            <div class="col-sm-12">
+                <img src="img/sidebar/teacher.png" class="img-fluid sidebar-icon"/>
+            </div>
+            <div class="col-sm-12">
+                <p class="roboto align-middle text-center">
+                    Docentes
+                </p>
+            </div>
+        </div>
+        <div class="row sidebar-item">
+            <div class="col-sm-12">
+                <img src="img/sidebar/subject.png" class="img-fluid sidebar-icon"/>
+            </div>
+            <div class="col-sm-12">
+                <p class="roboto align-middle text-center">
+                    Asignaturas
+                </p>
+            </div>
+        </div>
+        <div class="row sidebar-item">
+            <div class="col-sm-12">
+                <img src="img/sidebar/room.png" class="img-fluid sidebar-icon"/>
+            </div>
+            <div class="col-sm-12">
+                <p class="roboto align-middle text-center">
+                    Salas
+                </p>
+            </div>
+        </div>
+        <div class="row sidebar-item">
+            <div class="col-sm-12">
+                <img src="img/sidebar/schedule.png" class="img-fluid sidebar-icon"/>
+            </div>
+            <div class="col-sm-12">
+                <p class="roboto align-middle text-center">
+                    Horarios
+                </p>
+            </div>
+        </div>
+        <div class="row sidebar-item">
+            <div class="col-sm-12">
+                <img src="img/sidebar/logout.png" class="img-fluid sidebar-icon"/>
+            </div>
+            <div class="col-sm-12">
+                <p class="roboto align-middle text-center">
+                    Salir
+                </p>
+            </div>
+        </div>
     </div>
+
 
     <!-- ANGULAR DYNAMIC CONTENT -->
     <div ng-view></div>

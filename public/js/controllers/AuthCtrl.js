@@ -8,26 +8,26 @@ angular.module("AuthCtrl", ['cp.ngConfirm']).controller("AuthController", ["$sco
         pass2: ""
     }
     
-    AuthService.isLoggedIn(function (logged) {
-        if (logged) {
-            $location.path("/")
+    AuthService.isLoggedIn(function (res) {
+        if (res.logged) {
+            $location.path("/dashboard")
         }
     })
 
     $scope.login = function () {
-        AuthService.find($scope.userName, $scope.password, function (res) {
+        AuthService.login($scope.email, $scope.password, function (res) {
             if (res.logged) {
-                $location.path("/")
+                $location.path("/dashboard")
             } else {
                 $ngConfirm({
-                    title: "Que mal!",
-                    content: "Datos invalidos.",
+                    title: "Datos Invalidos",
+                    content: "El correo electrónico y/o la contraseña son incorrectos.",
                     theme: "dark",
                     scope: $scope,
                     buttons: {
-                        cerrar: {
-                            text: "Aceptar",
-                            btnClass: "btn btn-primary",
+                        entendido: {
+                            text: "Entendido",
+                            btnClass: "btn btn-login",
                             action: function () {
                             }
                         }
@@ -38,44 +38,80 @@ angular.module("AuthCtrl", ['cp.ngConfirm']).controller("AuthController", ["$sco
     }
     
     $scope.signup = function () {
-        AuthService.signup($scope.sign.email, $scope.sign.pass, function (res) {
-            if (res) {
-                $scope.sign = {
-                    email: "",
-                    pass: ""
-                }
-                
-                $ngConfirm({
-                    title: "Éxito!",
-                    content: "El nuevo usuario fué creado éxitosamente.",
-                    theme: "dark",
-                    scope: $scope,
-                    buttons: {
-                        cerrar: {
-                            text: "Aceptar",
-                            btnClass: "btn btn-success",
-                            action: function () {
-                            }
+        if ($scope.sign.email && $scope.sign.pass && $scope.sign.pass2) {
+            if ($scope.sign.pass == $scope.sign.pass2) {
+                AuthService.signup($scope.sign.email, $scope.sign.pass, function (res) {
+                    if (res.registered) {
+                        $scope.sign = {
+                            email: "",
+                            pass: ""
                         }
+                        
+                        $("#signUpModal").modal("hide")
+                        
+                        $ngConfirm({
+                            title: "Usuario Registrado",
+                            content: "Ya puede ingresar al sistema con sus credenciales de acceso.",
+                            theme: "dark",
+                            scope: $scope,
+                            buttons: {
+                                entendido: {
+                                    text: "Entendido",
+                                    btnClass: "btn btn-login",
+                                    action: function () {
+                                    }
+                                }
+                            }
+                        })
+                    } else {
+                        $ngConfirm({
+                            title: "Ocurrió un error en el proceso",
+                            content: "Ocurrió un error al registrar su usuario. Asegúrece que su Correo Electrónico no esté ya inscrito o inténtelo de nuevo más tarde.",
+                            theme: "dark",
+                            scope: $scope,
+                            buttons: {
+                                entendido: {
+                                    text: "Entendido",
+                                    btnClass: "btn btn-login",
+                                    action: function () {
+                                    }
+                                }
+                            }
+                        })
                     }
                 })
             } else {
                 $ngConfirm({
-                    title: "Que mal!",
-                    content: "Ocurrió un error al registrar el nuevo usuario. Intente nuevamente con otro nombre de usuario.",
+                    title: "Datos Invalidos",
+                    content: "Las contraseñas no coinciden.",
                     theme: "dark",
                     scope: $scope,
                     buttons: {
-                        cerrar: {
-                            text: "Aceptar",
-                            btnClass: "btn btn-primary",
+                        entendido: {
+                            text: "Entendido",
+                            btnClass: "btn btn-login",
                             action: function () {
                             }
                         }
                     }
                 })
             }
-        })
+        } else {
+            $ngConfirm({
+                title: "Datos Incompletos",
+                content: "Debe ingresar todos los datos que se le solicitan.",
+                theme: "dark",
+                scope: $scope,
+                buttons: {
+                    entendido: {
+                        text: "Entendido",
+                        btnClass: "btn btn-login",
+                        action: function () {
+                        }
+                    }
+                }
+            })
+        }
     }
     
     $scope.goHome = function () {

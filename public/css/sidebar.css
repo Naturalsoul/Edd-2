@@ -1,0 +1,19 @@
+.font-size-40 {
+    font-size: 40px;
+}
+
+.sidebar-item {
+    padding: 10px !important;
+    border-width: 0 1px 0 0;
+    border-style: solid;
+    border-color: rgba(225,225,225,.8);
+    cursor: pointer;
+    transition: all 200ms ease-in;
+}
+
+.sidebar-item:hover {
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    transition: all 200ms ease-in;
+}

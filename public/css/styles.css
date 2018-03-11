@@ -141,6 +141,14 @@
     transform: scale(1.1);
 }
 
+.ng-confirm-title {
+    font-family: "Expressway" !important;
+}
+
+.ng-confirm-content, .ng-confirm-buttons {
+    font-family: "Roboto" !important;
+}
+
 @media screen and (max-width: 576px) {
     .vertical-middle {
         top: 10vh;
